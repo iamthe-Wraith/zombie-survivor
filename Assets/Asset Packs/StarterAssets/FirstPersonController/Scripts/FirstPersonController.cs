@@ -70,6 +70,7 @@ namespace StarterAssets
 #endif
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
+		private Weapon _weapon;
 		private GameObject _mainCamera;
 
 		private const float _threshold = 0.01f;
@@ -99,6 +100,7 @@ namespace StarterAssets
 		{
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
+			_weapon = GetComponentInChildren<Weapon>();
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 			_playerInput = GetComponent<PlayerInput>();
 #else
@@ -115,6 +117,7 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			Shoot();
 		}
 
 		private void LateUpdate()
@@ -263,6 +266,19 @@ namespace StarterAssets
 
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
+		}
+
+		private void Shoot()
+		{
+			if (_input.shoot && !_weapon.IsFiring)
+			{
+				_weapon.Shoot();
+			}
+
+			if (!_input.shoot && _weapon.IsFiring)
+			{
+				_weapon.CeaseFire();
+			}
 		}
 	}
 }
