@@ -178,7 +178,7 @@
                     "id": "d1d171b6-19d8-47a6-ba3a-71b6a8e7b3c0",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "InvertVector2(invertX=false),StickDeadzone,ScaleVector2(x=300,y=300)",
+                    "processors": "InvertVector2(invertX=false),StickDeadzone,ScaleVector2(x=20,y=20)",
                     "groups": "Gamepad",
                     "action": "Look",
                     "isComposite": false,
@@ -246,6 +246,17 @@
                     "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7b40fdf9-573e-4f67-ab30-4f571508744e",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "Gamepad;Xbox Controller;PS4 Controller",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -14,17 +14,22 @@ public class Weapon : MonoBehaviour
     float damage = 1f;
 
     [SerializeField]
+    [Range(1, 10)]
     [Tooltip("Fire rate is the number of rounds this weapons can fire per second.")]
-    float fireRate = 2f;
+    int fireRate = 2;
+
+    [SerializeField] GameObject hitEffect;
 
     private float delayBetweenRounds;
     private bool isFiring = false;
-    private bool firingIsPaused = false;
     public bool IsFiring { get { return isFiring; } }
+    private bool firingIsPaused = false;
+    private ParticleSystem[] muzzleFlashParticles;
 
     void Start()
     {
-        delayBetweenRounds = 1f / fireRate;
+        delayBetweenRounds = 1f / (float)fireRate;
+        muzzleFlashParticles = GetComponentsInChildren<ParticleSystem>();
     }
 
     public void CeaseFire()
@@ -41,6 +46,13 @@ public class Weapon : MonoBehaviour
         StartCoroutine("ProcessShoot");
     }
 
+    private void CreateHitImpact(RaycastHit hit)
+    {
+        Debug.Log("impact...");
+        GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(impact, 2f);
+    }
+
     private IEnumerator ProcessShoot()
     {
         while(isFiring)
@@ -48,8 +60,12 @@ public class Weapon : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(fpCamera.transform.position, fpCamera.transform.forward, out hit, range))
             {
-                Debug.Log($"You hit a(n) {hit.transform.name}");
-                // TODO: add some hit effect for visual players
+                foreach(ParticleSystem muzzleFlashParticle in muzzleFlashParticles)
+                {
+                    muzzleFlashParticle.Play();
+                }
+
+                CreateHitImpact(hit);
 
                 EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
                 if (target)
