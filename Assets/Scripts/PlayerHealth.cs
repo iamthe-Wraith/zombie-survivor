@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] float hitPoints = 100f;
+
+    private void ProcessDeath()
     {
-        
+        Debug.Log("You are dead...");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(float damage)
     {
-        
+        hitPoints -= damage;
+
+        // TODO: add animation for being hit.
+
+        if (hitPoints <= 0)
+        {
+            ProcessDeath();
+        }
     }
 }
