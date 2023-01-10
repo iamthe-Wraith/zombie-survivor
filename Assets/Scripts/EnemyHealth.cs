@@ -6,6 +6,11 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] float hitPoints = 10f;
 
+    void Start()
+    {
+
+    }
+
     public void ProcessDeath()
     {
         Destroy(gameObject);
@@ -19,5 +24,7 @@ public class EnemyHealth : MonoBehaviour
         {
             ProcessDeath();
         }
+
+        BroadcastMessage("OnDamageTaken");
     }
 }

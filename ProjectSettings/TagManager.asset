@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - GameOver
+  - GameSession
   layers:
   - Default
   - TransparentFX
