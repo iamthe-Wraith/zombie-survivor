@@ -171,6 +171,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
   m_PrefabInstance: {fileID: 2098732909125475682}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2026845836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7688959950366096182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9656d39849d6242e8a2b4d0511ba5505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ZoomedOutFOV: 40
+  ZoomedInFOV: 15
+--- !u!114 &2026845842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7688959950366096182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a377cb2ccd34af4b08c2d8b3c62983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentAmmo: 10
 --- !u!114 &6651185076532627860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +221,10 @@ PrefabInstance:
     - target: {fileID: 8762286023885395077, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_Name
       value: PlayerFollowCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8762286023885395077, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
+      propertyPath: m_TagString
+      value: FollowCam
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_RootOrder
@@ -619,6 +650,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Canvas_StarterAssetsInputs_Joysticks
       objectReference: {fileID: 0}
+    - target: {fileID: 6751388636123340836, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8890774966862588244, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: playerInput
       value: 
@@ -718,9 +753,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpCamera: {fileID: 3159297422801519158}
   range: 100
-  damage: 1
+  damage: 3
   fireRate: 4
   hitEffect: {fileID: 9075804944958309472, guid: 21bdc8d03ea9f42bfbd245bb1c4e5a5b, type: 3}
+  ammo: {fileID: 2026845842}
 --- !u!4 &7853435801378808737 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: fddeeac0ebed86c4cab4320764b5c227, type: 3}

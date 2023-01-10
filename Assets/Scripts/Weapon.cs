@@ -19,6 +19,7 @@ public class Weapon : MonoBehaviour
     int fireRate = 2;
 
     [SerializeField] GameObject hitEffect;
+    [SerializeField] Ammo ammo;
 
     private float delayBetweenRounds;
     private bool isFiring = false;
@@ -39,9 +40,10 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        if (firingIsPaused) return;
-
+        if (firingIsPaused || ammo.CurrentAmmo > 0) return;
         isFiring = true;
+
+        ammo.ReduceCurrentAmmo();
 
         StartCoroutine("ProcessShoot");
     }
