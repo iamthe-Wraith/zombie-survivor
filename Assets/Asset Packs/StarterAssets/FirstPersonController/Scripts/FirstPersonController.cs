@@ -18,6 +18,8 @@ namespace StarterAssets
 		public float SprintSpeed = 6.0f;
 		[Tooltip("Rotation speed of the character")]
 		public float RotationSpeed = 1.0f;
+		[Tooltip("Rotation speed of the character when they have weapons zoomed")]
+		public float ZoomRotationSpeed = 1.0f;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
 
@@ -71,6 +73,7 @@ namespace StarterAssets
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 		private Weapon _weapon;
+		private WeaponZoom _weaponZoom;
 		private GameObject _mainCamera;
 
 		private const float _threshold = 0.01f;
@@ -101,6 +104,7 @@ namespace StarterAssets
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 			_weapon = GetComponentInChildren<Weapon>();
+			_weaponZoom = GetComponentInChildren<WeaponZoom>();
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 			_playerInput = GetComponent<PlayerInput>();
 #else
@@ -118,6 +122,7 @@ namespace StarterAssets
 			GroundedCheck();
 			Move();
 			Shoot();
+			Zoom();
 		}
 
 		private void LateUpdate()
@@ -140,8 +145,10 @@ namespace StarterAssets
 				//Don't multiply mouse input by Time.deltaTime
 				float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 				
-				_cinemachineTargetPitch += _input.look.y * RotationSpeed * deltaTimeMultiplier;
-				_rotationVelocity = _input.look.x * RotationSpeed * deltaTimeMultiplier;
+				float rotationSpeed = _weaponZoom.IsZoomed ? ZoomRotationSpeed : RotationSpeed;
+
+				_cinemachineTargetPitch += _input.look.y * rotationSpeed * deltaTimeMultiplier;
+				_rotationVelocity = _input.look.x * rotationSpeed * deltaTimeMultiplier;
 
 				// clamp our pitch rotation
 				_cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
@@ -279,6 +286,11 @@ namespace StarterAssets
 			{
 				_weapon.CeaseFire();
 			}
+		}
+
+		private void Zoom()
+		{
+			_weaponZoom.SetZoom(_input.zoom);
 		}
 	}
 }
