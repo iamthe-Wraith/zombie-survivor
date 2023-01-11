@@ -40,7 +40,7 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        if (firingIsPaused || ammo.CurrentAmmo > 0) return;
+        if (firingIsPaused || ammo.CurrentAmmo <= 0) return;
         isFiring = true;
 
         ammo.ReduceCurrentAmmo();
