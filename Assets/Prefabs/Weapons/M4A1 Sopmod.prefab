@@ -260,6 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3695445781041824214}
   - component: {fileID: 3695445780003008221}
+  - component: {fileID: 2230268459904623875}
   m_Layer: 0
   m_Name: M4A1 Sopmod
   m_TagString: Untagged
@@ -304,6 +305,20 @@ MonoBehaviour:
   fireRate: 4
   hitEffect: {fileID: 9075804944958309472, guid: 21bdc8d03ea9f42bfbd245bb1c4e5a5b, type: 3}
   ammo: {fileID: 0}
+--- !u!114 &2230268459904623875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3695445781041470966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9656d39849d6242e8a2b4d0511ba5505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ZoomedOutFOV: 40
+  ZoomedInFOV: 15
 --- !u!1001 &7113228464133117107
 PrefabInstance:
   m_ObjectHideFlags: 0

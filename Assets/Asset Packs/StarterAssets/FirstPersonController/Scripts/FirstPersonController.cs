@@ -145,7 +145,7 @@ namespace StarterAssets
 				//Don't multiply mouse input by Time.deltaTime
 				float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 				
-				float rotationSpeed = _weaponZoom.IsZoomed ? ZoomRotationSpeed : RotationSpeed;
+				float rotationSpeed = (_weaponZoom != null && _weaponZoom.IsZoomed) ? ZoomRotationSpeed : RotationSpeed;
 
 				_cinemachineTargetPitch += _input.look.y * rotationSpeed * deltaTimeMultiplier;
 				_rotationVelocity = _input.look.x * rotationSpeed * deltaTimeMultiplier;
@@ -290,6 +290,7 @@ namespace StarterAssets
 
 		private void Zoom()
 		{
+			if (_weaponZoom == null) return;
 			_weaponZoom.SetZoom(_input.zoom);
 		}
 	}
