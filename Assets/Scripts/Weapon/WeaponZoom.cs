@@ -11,9 +11,18 @@ public class WeaponZoom : MonoBehaviour
     private bool _isZoomed = false;
     public bool IsZoomed { get { return _isZoomed; } }
 
-    public void Zoom()
+    void OnDisable() {
+        SetZoom(false);    
+    }
+
+    public void SetZoom()
     {
-        _isZoomed = !_isZoomed;
+        SetZoom(!_isZoomed);
+    }
+
+    public void SetZoom(bool isZoomed)
+    {
+        _isZoomed = isZoomed;
         int fov = _isZoomed ? ZoomedInFOV : ZoomedOutFOV;
         playerFollowCamera.m_Lens.FieldOfView = fov;
     }

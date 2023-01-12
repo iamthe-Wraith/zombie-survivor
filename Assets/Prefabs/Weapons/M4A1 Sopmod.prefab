@@ -303,6 +303,7 @@ MonoBehaviour:
   range: 50
   damage: 3
   fireRate: 5
+  ammoType: 1
   hitEffect: {fileID: 9075804944958309472, guid: 21bdc8d03ea9f42bfbd245bb1c4e5a5b, type: 3}
   ammo: {fileID: 0}
 --- !u!114 &2230268459904623875

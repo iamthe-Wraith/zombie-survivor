@@ -12,7 +12,6 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
-		public bool zoom = false;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -82,7 +81,7 @@ namespace StarterAssets
 		public void OnZoom()
 		{
 			if (isDisabled) return;
-			BroadcastMessage("Zoom", SendMessageOptions.DontRequireReceiver);
+			BroadcastMessage("SetZoom", SendMessageOptions.DontRequireReceiver);
 		}
 #endif
 
@@ -105,11 +104,6 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
-		}
-
-		public void ZoomInput()
-		{
-			zoom = !zoom;
 		}
 		
 		private void OnApplicationFocus(bool hasFocus)

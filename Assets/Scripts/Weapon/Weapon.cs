@@ -19,7 +19,7 @@ public class Weapon : MonoBehaviour
     [Range(1, 10)]
     [Tooltip("Fire rate is the number of rounds this weapons can fire per second.")]
     int fireRate = 2;
-
+    [SerializeField] AmmoType ammoType;
     [SerializeField] GameObject hitEffect;
     [SerializeField] Ammo ammo;
 
@@ -56,13 +56,10 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log("firingIsPaused: " + firingIsPaused);
-        Debug.Log("isFiring: " + isFiring);
-
-        if (firingIsPaused || ammo.CurrentAmmo <= 0) return;
+        if (firingIsPaused || ammo.GetCurrentAmmo(ammoType) <= 0) return;
         isFiring = true;
 
-        ammo.ReduceCurrentAmmo();
+        ammo.ReduceCurrentAmmo(ammoType);
 
         StartCoroutine("ProcessShoot");
     }
