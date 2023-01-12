@@ -121,8 +121,6 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
-			Shoot();
-			Zoom();
 		}
 
 		private void LateUpdate()
@@ -273,25 +271,6 @@ namespace StarterAssets
 
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
-		}
-
-		private void Shoot()
-		{
-			if (_input.shoot && !_weapon.IsFiring)
-			{
-				_weapon.Shoot();
-			}
-
-			if (!_input.shoot && _weapon.IsFiring)
-			{
-				_weapon.CeaseFire();
-			}
-		}
-
-		private void Zoom()
-		{
-			if (_weaponZoom == null) return;
-			_weaponZoom.SetZoom(_input.zoom);
 		}
 	}
 }

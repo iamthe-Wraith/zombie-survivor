@@ -300,9 +300,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpCamera: {fileID: 0}
-  range: 100
+  range: 50
   damage: 3
-  fireRate: 4
+  fireRate: 5
   hitEffect: {fileID: 9075804944958309472, guid: 21bdc8d03ea9f42bfbd245bb1c4e5a5b, type: 3}
   ammo: {fileID: 0}
 --- !u!114 &2230268459904623875
@@ -317,6 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9656d39849d6242e8a2b4d0511ba5505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerFollowCamera: {fileID: 0}
   ZoomedOutFOV: 40
   ZoomedInFOV: 15
 --- !u!1001 &7113228464133117107

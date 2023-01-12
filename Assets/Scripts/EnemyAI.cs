@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] float chaseRange = 10;
+    [SerializeField] float speed = 3.5f;
     [SerializeField] float turnSpeed = 5;
 
     NavMeshAgent navMeshAgent;
@@ -16,6 +17,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.speed = speed;
     }
 
     void Update()

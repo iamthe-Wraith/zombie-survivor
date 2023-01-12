@@ -5233,17 +5233,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2382810566493446626, guid: 7b846d8f536f007498c941069487ce81, type: 3}
   m_PrefabInstance: {fileID: 1623480209}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1628654233 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5423980192669526303, guid: fa883080623824e18a2d21231f4f6a52, type: 3}
-  m_PrefabInstance: {fileID: 7853435802683531456}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1644430715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6108,6 +6097,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2706597592176010952, guid: 4ed490265700e4501b7aa63330259413, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706597592176010952, guid: 4ed490265700e4501b7aa63330259413, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 2026845834}
@@ -6159,6 +6152,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2706597592176010959, guid: 4ed490265700e4501b7aa63330259413, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 3.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ed490265700e4501b7aa63330259413, type: 3}
 --- !u!1001 &7853435802683531456
@@ -6168,10 +6165,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1547229115, guid: fa883080623824e18a2d21231f4f6a52, type: 3}
-      propertyPath: playerFollowCamera
-      value: 
-      objectReference: {fileID: 1628654233}
     - target: {fileID: 1048052338193141454, guid: fa883080623824e18a2d21231f4f6a52, type: 3}
       propertyPath: m_Name
       value: Player
@@ -6190,7 +6183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3891581478893050974, guid: fa883080623824e18a2d21231f4f6a52, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -61.58
+      value: -81.5
       objectReference: {fileID: 0}
     - target: {fileID: 3891581478893050974, guid: fa883080623824e18a2d21231f4f6a52, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6220,6 +6213,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4703551599055554420, guid: fa883080623824e18a2d21231f4f6a52, type: 3}
+    - target: {fileID: 6838734973395441908, guid: fa883080623824e18a2d21231f4f6a52, type: 3}
+      propertyPath: currentWeapon
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7688959950366096186, guid: fa883080623824e18a2d21231f4f6a52, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7688959950366096186, guid: fa883080623824e18a2d21231f4f6a52, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7688959950366096186, guid: fa883080623824e18a2d21231f4f6a52, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: fe779fdd-439a-491a-bd14-6f931647b723
+      objectReference: {fileID: 0}
+    - target: {fileID: 7688959950366096186, guid: fa883080623824e18a2d21231f4f6a52, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: 7e3679c2-110f-4892-bc21-8e6bb8c6d896
+      objectReference: {fileID: 0}
+    - target: {fileID: 7688959950366096186, guid: fa883080623824e18a2d21231f4f6a52, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: Player/Shoot[/Mouse/rightButton,/Keyboard/c]
+      objectReference: {fileID: 0}
+    - target: {fileID: 7688959950366096186, guid: fa883080623824e18a2d21231f4f6a52, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: Player/Zoom[/Keyboard/z]
+      objectReference: {fileID: 0}
+    - target: {fileID: 7853435801378717569, guid: fa883080623824e18a2d21231f4f6a52, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa883080623824e18a2d21231f4f6a52, type: 3}

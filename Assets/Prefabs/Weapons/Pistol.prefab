@@ -299,9 +299,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpCamera: {fileID: 0}
-  range: 100
-  damage: 3
-  fireRate: 4
+  range: 25
+  damage: 1
+  fireRate: 2
   hitEffect: {fileID: 9075804944958309472, guid: 21bdc8d03ea9f42bfbd245bb1c4e5a5b, type: 3}
   ammo: {fileID: 0}
 --- !u!1001 &2497229761230148778

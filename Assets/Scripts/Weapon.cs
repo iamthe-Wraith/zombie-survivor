@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using StarterAssets;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
@@ -21,25 +23,42 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject hitEffect;
     [SerializeField] Ammo ammo;
 
+    private StarterAssetsInputs _input;
     private float delayBetweenRounds;
     private bool isFiring = false;
     public bool IsFiring { get { return isFiring; } }
     private bool firingIsPaused = false;
+    public bool FiringIsPaused { get { return firingIsPaused; } }
     private ParticleSystem[] muzzleFlashParticles;
 
     void Start()
     {
+        _input = GetComponent<StarterAssetsInputs>();
         delayBetweenRounds = 1f / (float)fireRate;
         muzzleFlashParticles = GetComponentsInChildren<ParticleSystem>();
     }
 
+    void OnEnable() {
+        firingIsPaused = false;
+        isFiring = false;
+    }
+
+    void OnDisable() {
+        firingIsPaused = true;
+        isFiring = true;
+    }
+
     public void CeaseFire()
     {
+        firingIsPaused = false;
         isFiring = false;
     }
 
     public void Shoot()
     {
+        Debug.Log("firingIsPaused: " + firingIsPaused);
+        Debug.Log("isFiring: " + isFiring);
+
         if (firingIsPaused || ammo.CurrentAmmo <= 0) return;
         isFiring = true;
 

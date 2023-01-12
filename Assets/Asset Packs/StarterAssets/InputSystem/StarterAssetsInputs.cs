@@ -11,7 +11,6 @@ namespace StarterAssets
 		public Vector2 move;
 		public Vector2 look;
 		public bool jump;
-		public bool shoot;
 		public bool sprint;
 		public bool zoom = false;
 
@@ -23,12 +22,14 @@ namespace StarterAssets
 		public bool cursorInputForLook = true;
 
 		private bool isDisabled = false;
+		public bool IsDisabled { get { return isDisabled; } }
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		public void Disable()
 		{
 			isDisabled = true;
 			SetCursorState(false);
+			BroadcastMessage("CeaseFire");
 		}
 
 		public void Enable()
@@ -60,10 +61,17 @@ namespace StarterAssets
 		}
 
 		public void OnShoot(InputValue value)
-		{
-			if (isDisabled) return;
-			ShootInput(value.isPressed);
-		}
+    {
+				if (isDisabled) return;
+				if (value.isPressed)
+				{
+					BroadcastMessage("Shoot");
+				}
+				else
+				{
+					BroadcastMessage("CeaseFire");
+				}
+    }
 
 		public void OnSprint(InputValue value)
 		{
@@ -74,7 +82,7 @@ namespace StarterAssets
 		public void OnZoom()
 		{
 			if (isDisabled) return;
-			ZoomInput();
+			BroadcastMessage("Zoom", SendMessageOptions.DontRequireReceiver);
 		}
 #endif
 
@@ -92,11 +100,6 @@ namespace StarterAssets
 		public void JumpInput(bool newJumpState)
 		{
 			jump = newJumpState;
-		}
-
-		public void ShootInput(bool newShootState)
-		{
-			shoot = newShootState;
 		}
 
 		public void SprintInput(bool newSprintState)
